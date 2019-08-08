@@ -2,9 +2,9 @@
 <html>
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
-  <title>vscode的markdown操作 | 桥桥的代码小屋</title>
-  <meta name="keywords" content=" vscode , markdown ">
-  <meta name="description" content="vscode的markdown操作 | 桥桥的代码小屋">
+  <title>一个简单的监听设备上网教程(fiddler抓包) | 桥桥的代码小屋</title>
+  <meta name="keywords" content=" 抓包 fiddler 网络原理 ">
+  <meta name="description" content="一个简单的监听设备上网教程(fiddler抓包) | 桥桥的代码小屋">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="个人简介  &amp;emsp;&amp;emsp;大学生一枚，专业软件工程，对于热衷学习计算机知识，渴望能接触一流的软件开发流程和一线的技术。    联系方式 QQ: 1060172264 e-mail: DAmarkday@163.com  致谢&amp;emsp;&amp;emsp;非常感谢 叶落阁 大佬的主题和说明，让我能很大程序理解博客的构造和搭建。">
 <meta property="og:type" content="website">
@@ -335,9 +335,9 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-vscode文档" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-get-talk" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">vscode的markdown操作</h1>
+        <h1 class="article-title">一个简单的监听设备上网教程(fiddler抓包)</h1>
     
     <div class="article-meta">
         
@@ -345,28 +345,28 @@
         
         <span class="book">
             
-                <a href="javascript:" data-rel="其他">其他</a>
+                <a href="javascript:" data-rel="探究网络原理">探究网络原理</a>/
+            
+                <a href="javascript:" data-rel="抓包">抓包</a>
             
         </span>
         
         
         <span class="tag">
             
-            <a href="javascript:" class="color2">vscode</a>
-            
-            <a href="javascript:" class="color4">markdown</a>
+            <a href="javascript:" class="color1">抓包 fiddler 网络原理</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2019-08-05 13:01:35'>2019-07-30 13:29</time>
+        创建时间:<time class="date" title='更新时间: 2019-08-08 16:05:26'>2019-08-06 22:19</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:256</span>
+        <span>字数:1.2k</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -396,7 +396,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Vscode-Markdown-相关问题"><span class="toc-text">Vscode Markdown 相关问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#问题"><span class="toc-text">问题:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#问题原因"><span class="toc-text">问题原因:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解决办法"><span class="toc-text">解决办法:  </span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#操作过程"><span class="toc-text">操作过程:  </span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一个简单的监听设备上网教程"><span class="toc-text">一个简单的监听设备上网教程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#责任申明"><span class="toc-text">责任申明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基础概念"><span class="toc-text">基础概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#开始教程"><span class="toc-text">开始教程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第一步-下载fiddler"><span class="toc-text">第一步 下载fiddler</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第二步-设置抓包选项"><span class="toc-text">第二步 设置抓包选项</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第三步-手机端配置"><span class="toc-text">第三步 手机端配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第四步-安装CA证书"><span class="toc-text">第四步 安装CA证书</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#最后一点"><span class="toc-text">最后一点</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -411,22 +411,38 @@
 </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Vscode-Markdown-相关问题"><a href="#Vscode-Markdown-相关问题" class="headerlink" title="Vscode Markdown 相关问题"></a>Vscode Markdown 相关问题</h2><blockquote>
-<p>关于vscode markdown.styles如何使用自定义css文件的解决方案</p>
+        <h1 id="一个简单的监听设备上网教程"><a href="#一个简单的监听设备上网教程" class="headerlink" title="一个简单的监听设备上网教程"></a>一个简单的监听设备上网教程</h1><blockquote>
+<p>&emsp;&emsp;由于网络诈骗盗号层出不穷，谣言止于智者，所以给大家开始普及网络攻防安全。先从最基础的网络说起，这是第一版教程，之后回陆续介绍一下其他的方法。</p>
 </blockquote>
-<h3 id="问题"><a href="#问题" class="headerlink" title="问题:"></a>问题:</h3><p>出现无法加载 “markdown.styles”的显示框</p>
-<h3 id="问题原因"><a href="#问题原因" class="headerlink" title="问题原因:"></a>问题原因:</h3><blockquote>
-<p>根据issue说是安全原因取消了绝对路径样式，以至于现在无法使用绝对路径</p>
-<p><a href="https://github.com/Microsoft/vscode/issues/45260" target="_blank" rel="noopener">https://github.com/Microsoft/vscode/issues/45260</a></p>
+<br>
+
+<h2 id="责任申明"><a href="#责任申明" class="headerlink" title="责任申明"></a>责任申明</h2><p>&emsp;&emsp;本篇博客原创仅供学习交流使用，如用作其他用途所承受的法律责任一概与作者无关。</p>
+
+<h2 id="基础概念"><a href="#基础概念" class="headerlink" title="基础概念"></a>基础概念</h2><p> &emsp;&emsp;由于是最初教程，首先给大家大致普及一下互联网的通讯，从广泛的http通讯说起吧。</p>
+<blockquote>
+<p>&emsp;&emsp;你通过wifi连接电脑上网浏览网址，通过一个域名搜索一个网站，首先是电脑查看host里面是否存在之前解析的ip(如果你之前访问过该网站的话),如果不存在，则dns解析域名获取服务端的ip地址，之后把访问请求通过层次关系后传给路由(网关)，路由根据ip地址查看自身的路由表（静态路由表和动态路由表），通过点对点法则（和交换机的广播不同，广播是一对多）将请求发送给该路由已知的下一个路由（局部最优路径），之后下一个路由也根据路由表转发该请求，直到传到目的ip地址。服务端接到请求后，根据你发送的请求将固定的页面按同样的方法发送给你。</p>
 </blockquote>
-<h3 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法:  "></a>解决办法: <br> <br></h3><p> &ensp; &ensp;要么使用扩展，要么用当前工作空间的相对路径。就是说你这个css文件相对于当前编辑的文件的位置的路径，如果觉得绕口，就把css文件放在编辑文件的同一个目录下，这样路径直接填css文件名就好了。</p>
-<h3 id="操作过程"><a href="#操作过程" class="headerlink" title="操作过程:  "></a>操作过程: <br> <br></h3><p> 第一步在vscode界面的左下角齿轮打开设置，输入markdown</p>
-<p> <img src="/2019/07/30/vscode文档/1.png" alt="第一步"></p>
-<p> 第二步找到Markdown.styles，点击编辑</p>
-<p> <img src="/2019/07/30/vscode文档/2.png" alt="第二步"></p>
-<p> 第三步修改如图， <strong>注意的是你填写的路径如我开头所讲的那样，是你当前编辑文件的相对路径</strong>    </p>
-<p> <img src="/2019/07/30/vscode文档/3.png" alt="第三步"></p>
-<p> 修改完成之后就会看到效果。</p>
+<h2 id="开始教程"><a href="#开始教程" class="headerlink" title="开始教程"></a>开始教程</h2><p> 前提条件：<br><br>&emsp;&emsp;你和你要监听对象是连在同一个网络中的(比如: wifi网络).<br>此处笔者模拟的是在手机连在电脑的一个热点下电脑端监听聊天.(注:如果是统一wifi下，你可以登录家庭路由器的网址在路由设置里面更改代理(部分路由器可能没有端口镜像或端口监控功能),代理所填写的ip是你抓取别人上网数据的设备的ip，如果没有路由器代理功能，手机上wifi模式下长按连接的wifi选择高级选项，在里面填写代理和监听端口.<br>  <br></p>
+<h2 id="第一步-下载fiddler"><a href="#第一步-下载fiddler" class="headerlink" title="第一步 下载fiddler"></a>第一步 下载fiddler</h2><p>  &emsp;&emsp;在百度上搜索fiddler下载，<a href="https://www.baidu.com/link?url=PNiuANjLE32GLkoC_yZd4JC2ugEFhvLsD_GUQ_66oYV5IfotNo3uR5sb6eiSrvcP&wd=&eqid=d4505bdf00123fd3000000065d4bb5f4" target="_blank" rel="noopener">fiddler官网</a> <br><br>  &emsp;&emsp;下载完成之后打开<br>  &emsp;&emsp;界面是这样的：<br>  <img src="/2019/08/06/get-talk/1.png" alt="fiddler界面截图"></p>
+<h2 id="第二步-设置抓包选项"><a href="#第二步-设置抓包选项" class="headerlink" title="第二步 设置抓包选项"></a>第二步 设置抓包选项</h2><p>   &emsp;&emsp;在主界面左上角tools选择options界面 </p>
+<p>   <img src="/2019/08/06/get-talk/2.png" alt="options界面"><br><br><br>   &emsp;&emsp;按照如图更改：<br>   <br><br>    <img src="/2019/08/06/get-talk/3.png" alt="更改HTTPS设置"><br>    <br><br>&emsp;&emsp;解释：<br>    &emsp;&emsp;因为fiddler默认只会抓取http协议的请求数据，所以我们选择Capture HTTPS CONNECTs(捕获HTTPS连接),意思是可以捕获https的请求数据会在主界面显示<br><br><br>    <img src="/2019/08/06/get-talk/4.png" alt="更改Connections设置"><br>    <br><br>     &emsp;&emsp;Decrypt HTTPS traffic(解密HTTPS通信),https是加密传输，我们fiddler只有使用中间人攻击才能破译对方上网的数据。</p>
+<pre><code>from all processes:来自所有进程 
+from browsers only:仅从浏览器
+from non-browsers only:仅从非浏览器
+from remote clients only:仅从远程客户端</code></pre><p>  &emsp;&emsp;如果我们想抓取对方的上网信息，不抓取本地我们自己的上网信息，就可以选择from remote clients only，这样就不会抓到我们自己的数据包了。<br>  &emsp;&emsp;不建议勾选 check for certificate revocation(检查证书是否过期)</p>
+<p>  &emsp;&emsp;非必选：然后选择右方的Actions，选择把证书下载到桌面上。之后需要用。<br>   <br><br>  <img src="/2019/08/06/get-talk/5.png" alt="监听端口设置"><br>  &emsp;&emsp;选择监听端口为8888，选中allow remote computers to connect.</p>
+<h2 id="第三步-手机端配置"><a href="#第三步-手机端配置" class="headerlink" title="第三步 手机端配置"></a>第三步 手机端配置</h2><p> &emsp;&emsp;长按所选wlan<br>   <br></p>
+<p><img src="/2019/08/06/get-talk/6.png" alt="连接wlan"></p>
+<p><img src="/2019/08/06/get-talk/7.png" alt="修改网络"><br> <br><br>&emsp;&emsp;选择修改网络，选中高级设置<br>&emsp;&emsp;代理主机地址之后填写，先填写我们最开始设置的端口号8888<br> <br><br><img src="/2019/08/06/get-talk/8.png" alt="设置代理端口"><br><br><br>&emsp;&emsp;同时，电脑端win+R弹出运行框，输入cmd确定后，在dos界面输入ipconfig，找到如下：<br><br><br> <img src="/2019/08/06/get-talk/9.png" alt="查找代理主机ip"></p>
+<p>&emsp;&emsp;这里的ipv4地址就是手机端要输入的代理主机的地址(内网地址)<br>&emsp;&emsp;之后手机连接电脑：</p>
+<p><img src="/2019/08/06/get-talk/10.png" alt="成功连接"></p>
+<h2 id="第四步-安装CA证书"><a href="#第四步-安装CA证书" class="headerlink" title="第四步 安装CA证书"></a>第四步 安装CA证书</h2><p>&emsp;&emsp;手机打开浏览器，搜索格式为 <strong>你刚刚在手机端填写的代理主机地址</strong>:8888,出现如下界面就证明你离成功就差一步了<br> <img src="/2019/08/06/get-talk/11.png" alt="手机界面"><br> &emsp;&emsp;点击下载FiddlerRoot certificate ，然后安装证书即可。（某些手机可能无法直接安装，需要在设置里面找到用户信任凭证或者证书下安装才可）</p>
+<p> &emsp;&emsp;现在我们再打开fiddler，手机端浏览<a href="github.com">github官网</a>，fiddler抓包效果：</p>
+<p> <img src="/2019/08/06/get-talk/12.png" alt="fiddler抓包"></p>
+<h2 id="最后一点"><a href="#最后一点" class="headerlink" title="最后一点"></a>最后一点</h2>  <p>&emsp;&emsp;关于fiddler抓包qq，微信聊天记录，fiddler只能抓取http/https协议的通信，如果上面没有显示则证明qq微信用的其他通信协议，那么就要去学习其他的抓包软件，如强大且复杂的Wireshark根据自己的理解慎重选择学习。</p>
+
+
+
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 DAmarkday@163.com </span>
@@ -440,12 +456,12 @@
 
 
 <div class="article_copyright">
-    <p><span class="copy-title">文章标题:</span>vscode的markdown操作</p>
-    <p><span class="copy-title">文章字数:</span><span class="post-count">256</span></p>
+    <p><span class="copy-title">文章标题:</span>一个简单的监听设备上网教程(fiddler抓包)</p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">1.2k</span></p>
     <p><span class="copy-title">本文作者:</span><a href="javascript:void(0)" title="DAmarkday">DAmarkday</a></p>
-    <p><span class="copy-title">发布时间:</span>2019-07-30, 13:29:05</p>
-    <p><span class="copy-title">最后更新:</span>2019-08-05, 13:01:35</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/07/30/vscode文档/" title="vscode的markdown操作">http://DAmarkday.com/2019/07/30/vscode文档/</a>
+    <p><span class="copy-title">发布时间:</span>2019-08-06, 22:19:27</p>
+    <p><span class="copy-title">最后更新:</span>2019-08-08, 16:05:26</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/08/06/get-talk/" title="一个简单的监听设备上网教程(fiddler抓包)">http://DAmarkday.com/2019/08/06/get-talk/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
     </p>
