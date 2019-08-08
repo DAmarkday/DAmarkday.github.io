@@ -171,7 +171,7 @@
     
         
             
-            <li><div data-rel="其他">其他<small>(1)</small></div>
+            <li><div data-rel="安全漏洞">安全漏洞<small>(1)</small></div>
                 
             </li>
             
@@ -179,7 +179,7 @@
     
         
             
-            <li><div data-rel="安全漏洞">安全漏洞<small>(1)</small></div>
+            <li><div data-rel="导论">导论<small>(1)</small></div>
                 
             </li>
             
@@ -203,7 +203,7 @@
     
         
             
-            <li><div data-rel="导论">导论<small>(1)</small></div>
+            <li><div data-rel="其他">其他<small>(1)</small></div>
                 
             </li>
             
@@ -258,19 +258,15 @@
     <div class="tags-list">
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color2">vscode</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">markdown</a>
-    </li>
-    
-    <li class="article-tag-list-item">
         <a href="javascript:" class="color5">简易爬虫</a>
     </li>
     
     <li class="article-tag-list-item">
         <a href="javascript:" class="color3">漏洞</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">导论</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -286,7 +282,11 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color3">导论</a>
+        <a href="javascript:" class="color2">vscode</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">markdown</a>
     </li>
     
     <div class="clearfix"></div>
@@ -299,20 +299,20 @@
     
     <nav id="title-list-nav">
         
-        <a  class="其他 "
-           href="/2019/07/30/vscode文档/"
-           data-tag="vscode,markdown"
-           data-author="" >
-            <span class="post-title" title="vscode的markdown操作">vscode的markdown操作</span>
-            <span class="post-date" title="2019-07-30 13:29:05">2019/07/30</span>
-        </a>
-        
         <a  class="安全漏洞 "
            href="/2019/08/05/find-leak/"
            data-tag="简易爬虫,漏洞"
            data-author="" >
             <span class="post-title" title="学校教务网的一个安全漏洞">学校教务网的一个安全漏洞</span>
             <span class="post-date" title="2019-08-05 10:42:33">2019/08/05</span>
+        </a>
+        
+        <a  class="导论 "
+           href="/2019/07/30/导论/"
+           data-tag="导论"
+           data-author="" >
+            <span class="post-title" title="导论">导论</span>
+            <span class="post-date" title="2019-07-30 20:44:01">2019/07/30</span>
         </a>
         
         <a  class="网络原理 抓包 "
@@ -323,12 +323,12 @@
             <span class="post-date" title="2019-08-06 22:19:27">2019/08/06</span>
         </a>
         
-        <a  class="导论 "
-           href="/2019/07/30/导论/"
-           data-tag="导论"
+        <a  class="其他 "
+           href="/2019/07/30/vscode文档/"
+           data-tag="vscode,markdown"
            data-author="" >
-            <span class="post-title" title="导论">导论</span>
-            <span class="post-date" title="2019-07-30 20:44:01">2019/07/30</span>
+            <span class="post-title" title="vscode的markdown操作">vscode的markdown操作</span>
+            <span class="post-date" title="2019-07-30 13:29:05">2019/07/30</span>
         </a>
         
     </nav>
@@ -373,7 +373,7 @@
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2019-08-08 16:16:24'>2019-08-06 22:19</time>
+        创建时间:<time class="date" title='更新时间: 2019-08-08 16:54:15'>2019-08-06 22:19</time>
         
     </div>
     <div class="article-meta">
@@ -434,7 +434,7 @@
 <blockquote>
 <p>&emsp;&emsp;你通过wifi连接电脑上网浏览网址，通过一个域名搜索一个网站，首先是电脑查看host里面是否存在之前解析的ip(如果你之前访问过该网站的话),如果不存在，则dns解析域名获取服务端的ip地址，之后把访问请求通过层次关系后传给路由(网关)，路由根据ip地址查看自身的路由表（静态路由表和动态路由表），通过点对点法则（和交换机的广播不同，广播是一对多）将请求发送给该路由已知的下一个路由（局部最优路径），之后下一个路由也根据路由表转发该请求，直到传到目的ip地址。服务端接到请求后，根据你发送的请求将固定的页面按同样的方法发送给你。</p>
 </blockquote>
-<h2 id="开始教程"><a href="#开始教程" class="headerlink" title="开始教程"></a>开始教程</h2><p> 前提条件：<br><br>&emsp;&emsp;你和你要监听对象是连在同一个网络中的(比如: wifi网络).<br>此处笔者模拟的是在手机连在电脑的一个热点下电脑端监听聊天.(注:如果是统一wifi下，你可以登录家庭路由器的网址在路由设置里面更改代理(部分路由器可能没有端口镜像或端口监控功能),代理所填写的ip是你抓取别人上网数据的设备的ip，如果没有路由器代理功能，手机上wifi模式下长按连接的wifi选择高级选项，在里面填写代理和监听端口.<br>  <br></p>
+<h2 id="开始教程"><a href="#开始教程" class="headerlink" title="开始教程"></a>开始教程</h2><p> 前提条件：<br><br>&emsp;&emsp;你和你要监听对象是连在同一个网络中的(比如: wifi网络).<br>&emsp;&emsp;此处笔者模拟的是在手机连在电脑的一个热点下电脑端监听聊天.(注:如果是统一wifi下，你可以登录家庭路由器的网址在路由设置里面更改代理(部分路由器可能没有端口镜像或端口监控功能),代理所填写的ip是你抓取别人上网数据的设备的ip，如果没有路由器代理功能，手机上wifi模式下长按连接的wifi选择高级选项，在里面填写代理和监听端口.<br>  <br></p>
 <h2 id="第一步-下载fiddler"><a href="#第一步-下载fiddler" class="headerlink" title="第一步 下载fiddler"></a>第一步 下载fiddler</h2><p>  &emsp;&emsp;在百度上搜索fiddler下载，<a href="https://www.baidu.com/link?url=PNiuANjLE32GLkoC_yZd4JC2ugEFhvLsD_GUQ_66oYV5IfotNo3uR5sb6eiSrvcP&wd=&eqid=d4505bdf00123fd3000000065d4bb5f4" target="_blank" rel="noopener">fiddler官网</a> <br><br>  &emsp;&emsp;下载完成之后打开<br>  &emsp;&emsp;界面是这样的：<br>  <img src="/2019/08/06/get-talk/1.png" alt="fiddler界面截图"></p>
 <h2 id="第二步-设置抓包选项"><a href="#第二步-设置抓包选项" class="headerlink" title="第二步 设置抓包选项"></a>第二步 设置抓包选项</h2><p>   &emsp;&emsp;在主界面左上角tools选择options界面 </p>
 <p>   <img src="/2019/08/06/get-talk/2.png" alt="options界面"><br><br><br>   &emsp;&emsp;按照如图更改：<br>   <br><br>    <img src="/2019/08/06/get-talk/3.png" alt="更改HTTPS设置"><br>    <br><br>&emsp;&emsp;解释：<br>    &emsp;&emsp;因为fiddler默认只会抓取http协议的请求数据，所以我们选择Capture HTTPS CONNECTs(捕获HTTPS连接),意思是可以捕获https的请求数据会在主界面显示<br><br><br>    <img src="/2019/08/06/get-talk/4.png" alt="更改Connections设置"><br>    <br><br>     &emsp;&emsp;Decrypt HTTPS traffic(解密HTTPS通信),https是加密传输，我们fiddler只有使用中间人攻击才能破译对方上网的数据。</p>
@@ -472,7 +472,7 @@
     <p><span class="copy-title">文章字数:</span><span class="post-count">1.2k</span></p>
     <p><span class="copy-title">本文作者:</span><a href="javascript:void(0)" title="DAmarkday">DAmarkday</a></p>
     <p><span class="copy-title">发布时间:</span>2019-08-06, 22:19:27</p>
-    <p><span class="copy-title">最后更新:</span>2019-08-08, 16:16:24</p>
+    <p><span class="copy-title">最后更新:</span>2019-08-08, 16:54:15</p>
     <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/08/06/get-talk/" title="一个简单的监听设备上网教程(fiddler抓包)">http://DAmarkday.com/2019/08/06/get-talk/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
@@ -555,7 +555,7 @@
     /*作者、标签的自动补全*/
     $(function () {
         $('.search').AutoComplete({
-            'data': ['#vscode','#markdown','#简易爬虫','#漏洞','#抓包','#fiddler','#网络原理','#导论',],
+            'data': ['#简易爬虫','#漏洞','#导论','#抓包','#fiddler','#网络原理','#vscode','#markdown',],
             'itemHeight': 20,
             'width': 418
         }).AutoComplete('show');
