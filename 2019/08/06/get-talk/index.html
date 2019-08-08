@@ -179,22 +179,6 @@
     
         
             
-            <li><div data-rel="其他">其他<small>(1)</small></div>
-                
-            </li>
-            
-        
-    
-        
-            
-            <li><div data-rel="导论">导论<small>(1)</small></div>
-                
-            </li>
-            
-        
-    
-        
-            
             <li><div data-rel="探究网络原理"><i class="fold iconfont icon-right"></i>探究网络原理<small>(1)</small></div>
                 
                     <ul class="sub hide">
@@ -204,6 +188,22 @@
                         </li>
                             
                     </ul>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="其他">其他<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="导论">导论<small>(1)</small></div>
                 
             </li>
             
@@ -266,6 +266,10 @@
     </li>
     
     <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">抓包 fiddler 网络原理</a>
+    </li>
+    
+    <li class="article-tag-list-item">
         <a href="javascript:" class="color2">vscode</a>
     </li>
     
@@ -275,10 +279,6 @@
     
     <li class="article-tag-list-item">
         <a href="javascript:" class="color3">导论</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color1">抓包 fiddler 网络原理</a>
     </li>
     
     <div class="clearfix"></div>
@@ -299,6 +299,14 @@
             <span class="post-date" title="2019-08-05 10:42:33">2019/08/05</span>
         </a>
         
+        <a  class="探究网络原理 抓包 "
+           href="/2019/08/06/get-talk/"
+           data-tag="抓包 fiddler 网络原理"
+           data-author="" >
+            <span class="post-title" title="一个简单的监听设备上网教程(fiddler抓包)">一个简单的监听设备上网教程(fiddler抓包)</span>
+            <span class="post-date" title="2019-08-06 22:19:27">2019/08/06</span>
+        </a>
+        
         <a  class="其他 "
            href="/2019/07/30/vscode文档/"
            data-tag="vscode,markdown"
@@ -313,14 +321,6 @@
            data-author="" >
             <span class="post-title" title="导论">导论</span>
             <span class="post-date" title="2019-07-30 20:44:01">2019/07/30</span>
-        </a>
-        
-        <a  class="探究网络原理 抓包 "
-           href="/2019/08/06/get-talk/"
-           data-tag="抓包 fiddler 网络原理"
-           data-author="" >
-            <span class="post-title" title="一个简单的监听设备上网教程(fiddler抓包)">一个简单的监听设备上网教程(fiddler抓包)</span>
-            <span class="post-date" title="2019-08-06 22:19:27">2019/08/06</span>
         </a>
         
     </nav>
@@ -543,7 +543,7 @@ from remote clients only:仅从远程客户端</code></pre><p>  &emsp;&emsp;如�
     /*作者、标签的自动补全*/
     $(function () {
         $('.search').AutoComplete({
-            'data': ['#简易爬虫','#漏洞','#vscode','#markdown','#导论','#抓包 fiddler 网络原理',],
+            'data': ['#简易爬虫','#漏洞','#抓包 fiddler 网络原理','#vscode','#markdown','#导论',],
             'itemHeight': 20,
             'width': 418
         }).AutoComplete('show');
