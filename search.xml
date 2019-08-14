@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>微信小程序循环同步请求踩坑指南</title>
+      <link href="/2019/08/13/Mini-Program/"/>
+      <url>/2019/08/13/Mini-Program/</url>
+      
+        <content type="html"><![CDATA[<h1 id="微信小程序循环同步请求踩坑指南"><a href="#微信小程序循环同步请求踩坑指南" class="headerlink" title="微信小程序循环同步请求踩坑指南"></a>微信小程序循环同步请求踩坑指南</h1><br><blockquote><p>&emsp;&emsp;最近做微信小程序校园失物巡回箱的时候需要完成一个逻辑就是用循环while/for 来不断向云数据库发送读写请求，有感而写，希望能给你启发。</p></blockquote><br><h2 id="问题阐述"><a href="#问题阐述" class="headerlink" title="问题阐述"></a>问题阐述</h2><p>&emsp;&emsp;关于不断循环发送请求这一点，由于发送请求本是耗时操作，本意打算用promise来将异步变成同步，但试过之后发现循环只运行一次，原因尚不清楚。可能是由于js的线程堵塞机制引发的阻塞问题，</p><h2 id="展示代码"><a href="#展示代码" class="headerlink" title="展示代码"></a>展示代码</h2><h3 id="promse请求"><a href="#promse请求" class="headerlink" title="promse请求"></a>promse请求</h3><p>故障:只能运行一次</p><pre><code>onLoad:function(){  for (let i=0;i&lt;9;i++){     return new Promise((resolve,reject) =&gt;{            //执行代码成功            resolve();            //执行代码失败            reject();     }).then(res =&gt;{});   }}</code></pre><h3 id="async-await请求"><a href="#async-await请求" class="headerlink" title="async await请求"></a>async await请求</h3><p>解决只能与逆行一次的问题</p><pre><code> async onLoad(){  for(let i=0;i&lt;9;i++){      await new Promise((resolve,reject) =&gt;{            //执行代码成功            resolve();            //执行代码失败            reject();     }).then(res =&gt;{});  }}</code></pre><h2 id="js阻塞机制"><a href="#js阻塞机制" class="headerlink" title="js阻塞机制"></a>js阻塞机制</h2><h3 id="阻塞机制解释"><a href="#阻塞机制解释" class="headerlink" title="阻塞机制解释"></a>阻塞机制解释</h3><p>&emsp;&emsp;JavaScript是单线程执行的，无法同时执行多段代码。当某一段代码正在执行的时候，所有后续的任务都必须等待，形成一个队列。一旦当前任务执行完毕，再从队列中取出下一个任务，这也常被称为 “阻塞式执行”。所以一次鼠标点击，或是计时器到达时间点，或是Ajax请求完成触发了回调函数，这些事件处理程序或回调函数都不会立即运行，而是立即排队，一旦线程有空闲就执行。<br>&emsp;&emsp;关键说明：假如当前 JavaScript线程正在执行一段很耗时的代码，此时发生了一次鼠标点击，那么事件处理程序就被阻塞，用户也无法立即看到反馈，事件处理程序会被放入任务队列，直到前面的代码结束以后才会开始执行。如果代码中设定了一个 setTimeout，那么浏览器便会在合适的时间，将代码插入任务队列，如果这个时间设为 0，就代表立即插入队列，但不是立即执行，仍然要等待前面代码执行完毕。所以 setTimeout 并不能保证执行的时间，是否及时执行取决于 JavaScript 线程是拥挤还是空闲。</p><p>&emsp;&emsp;js阻塞机制，跟Js引擎的单线程处理方式有关，每个window一个JS线程。所谓单线程，在某个特定的时刻只有特定的代码能够被执行，并阻塞其它的代码。</p>以下给个示例:<pre><code>for(var i=0;i&lt;3;i++){  setTimeout(function(){      console.log(i);                  }, (i+1)*1000); }</code></pre><p>&emsp;&emsp;一般，我们会认为，这段代码会log出来0,1,2.而实际上，这段代码log出来的结果是 3,3,3。具体原因就是因为for循环的阻塞机制。在上面的代码中，setTimeout这个定时器需要等待for循环 执行完成，而for循环执行完成了之后，i已经为3了，此时才开始执行setTimeout，因此console.log(i)会是3。至于为什么i会是3,当i为2的时候，满足循环条件，执行代码块，然后i++，此时i为3，不满足循环条件，不执行代码块，循环停止。</p><h3 id="阻塞机制解决办法"><a href="#阻塞机制解决办法" class="headerlink" title="阻塞机制解决办法"></a>阻塞机制解决办法</h3><p>&emsp;&emsp;其实，阻塞作为js引擎的处理方式，我们最好不要想着解决“阻塞”，而是让我们想执行的代码，插入到“主线程”中。这么说比较不易理解，还是以上面的代码为例，直接上代码好了</p><pre><code>for(var i=0;i&lt;3;i++){  (function(i){      setTimeout(function(){        console.log(i);          }, (i+1)*1000);      })(i) }</code></pre><p>&emsp;&emsp;在上面的代码中，我们加了一个立即执行的匿名函数，并且将for循环的i作为实参传入进去。这样，setTimeout就会被立即执行，而不会等待（这里不太了解细节，就不多说了，大概猜测为新开了一个临时的线程，立即执行匿名函数，然后再立即切换回来）。</p><p>注意：顺带提一下，html5支持Web worker功能，可以写多线程，小程序同样可以用worker功能。</p><h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>&emsp;&emsp;本篇文章引用的文章链接如下，感谢他们的帮助:</p>&emsp;&emsp; <a href="https://blog.csdn.net/rangwotongxing34/article/details/79378790" target="_blank" rel="noopener">JavaScript的单线程与阻塞式执行（附案例）</a><p>&emsp;&emsp; <a href="https://www.cnblogs.com/hq233/p/8042995.html" target="_blank" rel="noopener">Js中for循环的阻塞机制</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 编程平台 </category>
+          
+          <category> 微信小程序 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 微信小程序 </tag>
+            
+            <tag> javascript </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>一个简单的监听设备上网教程(fiddler抓包)</title>
       <link href="/2019/08/06/get-talk/"/>
       <url>/2019/08/06/get-talk/</url>
