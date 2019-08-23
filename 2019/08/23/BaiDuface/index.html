@@ -2,9 +2,9 @@
 <html>
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
-  <title>桥桥的代码小屋</title>
-  <meta name="keywords" content>
-  <meta name="description" content="桥桥的代码小屋">
+  <title>小程序人脸动态识别摇摇头点点头采坑建议 | 桥桥的代码小屋</title>
+  <meta name="keywords" content=" 微信小程序 , javascript , 人脸识别 ">
+  <meta name="description" content="小程序人脸动态识别摇摇头点点头采坑建议 | 桥桥的代码小屋">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="个人简介  &amp;emsp;&amp;emsp;大学生一枚，专业软件工程，对于热衷学习计算机知识，渴望能接触一流的软件开发流程和一线的技术。    联系方式 QQ: 1060172264 e-mail: DAmarkday@163.com  致谢&amp;emsp;&amp;emsp;非常感谢 叶落阁 大佬的主题和说明，让我能很大程序理解博客的构造和搭建。">
 <meta property="og:type" content="website">
@@ -52,7 +52,7 @@
 </div>
 
 <body>
-<aside class="nav mobile">
+<aside class="nav">
     <div class="nav-left">
         <a href="/" class="avatar_target">
     <img class="avatar" src="/img/avatar.jpg" />
@@ -389,12 +389,74 @@
         </div>
     </div>
 </aside>
-<div class="post index">
+<div class="post">
     <div class="pjax">
-        <article class="index">
-            <div class="toc-ref">
+        <article id="post-BaiDuface" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#why-blog"><span class="toc-text">why blog</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#目的"><span class="toc-text">目的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#学习困境"><span class="toc-text">学习困境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#继续深入"><span class="toc-text">继续深入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关于博客"><span class="toc-text">关于博客</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#博客平台"><span class="toc-text">博客平台</span></a></li></ol></li></ol>
+        <h1 class="article-title">小程序人脸动态识别摇摇头点点头采坑建议</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            
+                <a href="javascript:" data-rel="编程平台">编程平台</a>/
+            
+                <a href="javascript:" data-rel="微信小程序">微信小程序</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="javascript:" class="color1">微信小程序</a>
+            
+            <a href="javascript:" class="color1">javascript</a>
+            
+            <a href="javascript:" class="color5">人脸识别</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date" title='更新时间: 2019-08-23 11:39:40'>2019-08-23 07:55</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        <span>字数:2k</span>
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读:<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+        <span class="top-comment" title="跳转至评论区">
+            <a href="#comments">
+                评论:<span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </a>
+        </span>
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#说明"><span class="toc-text">说明</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#探究"><span class="toc-text">探究</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#实现思路"><span class="toc-text">实现思路</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#定时器"><span class="toc-text">定时器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#setTimeout和setInterval区别及选择"><span class="toc-text">setTimeout和setInterval区别及选择</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#定时器代码"><span class="toc-text">定时器代码</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实现功能过程"><span class="toc-text">实现功能过程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#获取accessToken"><span class="toc-text">获取accessToken</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#云函数代码"><span class="toc-text">云函数代码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#小程序端代码"><span class="toc-text">小程序端代码</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#开始定时循环拍摄"><span class="toc-text">开始定时循环拍摄</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#循环拍照"><span class="toc-text">循环拍照</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#发送请求"><span class="toc-text">发送请求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#摇头点头顺序设置"><span class="toc-text">摇头点头顺序设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解析返回json文件"><span class="toc-text">解析返回json文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#人脸对比"><span class="toc-text">人脸对比</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#最后"><span class="toc-text">最后</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -407,48 +469,289 @@
     }
 </style>
 </div>
-            <h1 id="why-blog"><a href="#why-blog" class="headerlink" title="why blog"></a>why blog</h1><blockquote>
-<p>&emsp;&emsp;长久以来一个问题一直困扰着我，为什么有些东西如此昂贵，如此的高科技，却毫无用处，就像我知道的，计算机虽然是台笨机器，却有能力做出难以置信的智能事情，而程序员虽然是一些聪明的人，但却老是做难以置信的傻事情。他们呀，简言之，是对绝配。</p>
-<p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;— Bill Bryson, 作家, 出自《Notes from a Big Country》</p>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote>
+<p>&emsp;&emsp;应需求,在小程序内部弄一个人脸动态活体扫描,检测一下摇摇头,点点头之类的。但是在网上的相关信息却没有,偶尔有几个思路,所以就在这里记录下自己的探究历程</p>
 </blockquote>
-<h2 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h2><p>&emsp;&emsp;针对网络上繁杂的基础知识和实验流程做一个自己总结的简略总结，每个人的思维方式和问题角度，对待问题的着重点不同以至于在网络上看待一个过程，知识点，问题的解决方案每个人所得到的东西都不尽一致。希望自己能尽心尽力地去总结我在学习上遇到的各种困难问题，这样对自己后来的复习和解决新的困难时会更加迅速。</p>
+<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><p>&emsp;&emsp;首先说明的是这篇文章采用的是百度云的人脸识别,与腾讯的人脸识别不同的是,百度人脸识别的api还提供三维旋转的角度检测,这样对于实现检测人脸识别摇头和点头是非常简单的。</p>
 
-<h2 id="学习困境"><a href="#学习困境" class="headerlink" title="学习困境"></a>学习困境</h2><p>&emsp;&emsp;需要学习的东西太多，完整消化一个知识点又需要很长时间，比如对于http协议的深入了解还需要去了解交换机局域网的通信原理，在学习过程种所遇到的困难很多，网络上有些存在解决方案但是没有讲授出现问题的原因。况且身边的学习氛围不够浓厚，除非意志坚定很难在一段漫长的时间里保持对学习的高度热情，并且身处群体之中，个体很难维持长久的理智。希望自己能在学习的道路上顽强走下去。</p>
+<p><img src="/2019/08/23/BaiDuface/first.png" alt="百度云人脸识别接口说明"></p>
+<h1 id="探究"><a href="#探究" class="headerlink" title="探究"></a>探究</h1><h2 id="实现思路"><a href="#实现思路" class="headerlink" title="实现思路"></a>实现思路</h2><p>&emsp;&emsp;创造一个定时器,在定时器里面使用拍照之后使用人脸识别接口,这样就变成动态检测了。</p>
 
-<h2 id="继续深入"><a href="#继续深入" class="headerlink" title="继续深入"></a>继续深入</h2><ul>
-<li>wireshark的使用</li>
-<li>完整探究局域网的底层通讯原理</li>
-<li>学习二维码的原理</li>
-<li>框架架构设计模式的根本区别</li>
-<li>了解数据保护</li>
-<li>深入探究web开发流程客户端服务端数据库的三方通讯</li>
-<li>巩固代码基础（java implements）</li>
-<li>修改校园失物巡回箱子的刷新监听代码</li>
-<li>修改校园失物巡回箱子人脸动态活体扫描机制</li>
-<li>抓取学校官网的照片并进行人脸对比</li>
-<li>了解dns劫持</li>
-<li>写http图解的读后感，梳理其中的web攻击方式（博客）</li>
-<li>熟悉安卓的mvp和mvc设计模式</li>
-<li>了解脚本</li>
-</ul>
-<h2 id="关于博客"><a href="#关于博客" class="headerlink" title="关于博客"></a>关于博客</h2><p><strong>桥桥的代码小屋</strong> 是 桥先生（谢金桥） 的个人站。</p>
-<p>到目前为止已经写了<code class="article_number"></code>篇文章， 共<code class="site_word_count"></code>字。</p>
-<p>本站访问人数：<code class="site_uv"></code>人次 ， 访问量：<code class="site_pv"></code>次</p>
-<h2 id="博客平台"><a href="#博客平台" class="headerlink" title="博客平台"></a>博客平台</h2><p>这个博客通过 <a href="https://hexo.io/">Hexo</a> 生成，部署在 <a href="https://pages.github.com/">GitHub Pages</a>，主题 <a href="https://github.com/yelog/hexo-theme-3-hexo">3-hexo</a> 已经在github上开源</p>
-<p>主要功能：</p>
-<ul>
-<li>搜索支持文章标题、标签(#标签)、作者(@作者)</li>
-<li>pad/手机等移动端适配</li>
-<li>页面全局快捷键 <a href='http://yelog.org/2017/03/24/3-hexo-shortcuts/'>3-hexo快捷键说明</a></li>
-</ul>
+<h3 id="定时器"><a href="#定时器" class="headerlink" title="定时器"></a>定时器</h3><h4 id="setTimeout和setInterval区别及选择"><a href="#setTimeout和setInterval区别及选择" class="headerlink" title="setTimeout和setInterval区别及选择"></a>setTimeout和setInterval区别及选择</h4>  <p>&emsp;&emsp;setTimeout和setInterval都可以用作定时器,但是我们得先大致区分一下两者的部分区别:</p>
 
-        </article>
-        
-        <p>
-            <a href="javascript:void(0)" class="dashang" onclick="dashangToggle()">赏</a>
-        </p>
-        
-        
+<blockquote>
+<p>&emsp;&emsp;setTimeout会保证在指定好的延时时间后执行,但是setInterval则不会这样。 如果function中的代码有耗时载操作,那么使用setTimeout方法递归,则可能会增加总递归的时间。 <br><br>&emsp;&emsp;而使用setInterval方法,如果程序中耗时比延时间隔长,则会立刻回调函数。( 更多关于setInterval计时不准确可以点击<a href="https://www.zhihu.com/question/20479535" target="_blank" rel="noopener">这里</a>了解。)</p>
+</blockquote>
+<p>&emsp;&emsp;因为setInterval计时并不准确,同时我们定时器同时存在耗时操作(调用百度云接口),所以我们这里就采用setTimeout +递归方式来实现定时。</p>
+<h4 id="定时器代码"><a href="#定时器代码" class="headerlink" title="定时器代码"></a>定时器代码</h4><pre><code>every_camera_upload: function(acstoken) { //定时拍摄照片
+let that = this;
+timer = setTimeout(function() {//设置定时器,并赋给全局变量timer
+
+
+ //that.camera().then(resx =&gt; {//循环拍照  
+   // that.uploadBaiDuPicture(acstoken).then(rx =&gt;{//上传百度云接口
+     // that.judge_face(rx);//获取返回的json数据并分析
+
+   // });
+
+    that.every_camera_upload(that.data.getAccessToken); //方法中调用定时器实现循环
+//  });
+}, 1500);
+
+}
+//clearTimeout(timer); //此方法不能放在定时器方法内部,
+//用于清除新一轮循环中函数还未运行时清除定时器,
+//也不能放在every_camera_upload()方法内部,应为要重复调用,应放于其他方法内部。</code></pre><p>&emsp;&emsp;解释一下代码,在方法内部,设置一个setTimeout赋给全局变量,在定时器内部调用camer方法,之后则重复调用every_camera_upload()方法实现递归。clearTimeout()的作用用于清除循环,必须在其他方法中使用。</p>
+
+<h2 id="实现功能过程"><a href="#实现功能过程" class="headerlink" title="实现功能过程"></a>实现功能过程</h2><h3 id="获取accessToken"><a href="#获取accessToken" class="headerlink" title="获取accessToken"></a>获取accessToken</h3><p>&emsp;&emsp;阅读百度云人脸识别接口得知,先获取access_token进行身份验证,但我们不能将密钥密匙放在客户端上防止别人抓包逆工程获取到,此时可以将其放在服务器或者使用云开发的云函数上(博主使用的云函数)</p>
+
+<h4 id="云函数代码"><a href="#云函数代码" class="headerlink" title="云函数代码"></a>云函数代码</h4><pre><code>// 云函数入口文件
+ const cloud = require(&apos;wx-server-sdk&apos;);
+ cloud.init();
+
+// 云函数入口函数
+var getAccessToken = function () { //人脸识别API
+var https = require(&apos;https&apos;);
+var qs = require(&apos;querystring&apos;);
+
+const param = qs.stringify({
+&apos;grant_type&apos;: &apos;client_credentials&apos;,
+&apos;client_id&apos;: &apos;你的 Api Key&apos;,
+&apos;client_secret&apos;: &apos;你的 Secret Key&apos;
+});
+var access_token;
+return new Promise((resolve,reject) =&gt; {
+ let body =[];
+https.get(
+{
+  hostname: &apos;aip.baidubce.com&apos;,
+  path: &apos;/oauth/2.0/token?&apos; + param,
+  agent: false
+},
+function (res) {
+  res.on(&apos;data&apos;,(chunk) =&gt; {
+    body.push(chunk);
+
+
+  }); 
+  res.on(&apos;end&apos;, () =&gt;{
+    let data = Buffer.concat(body).toString();
+    let getData = JSON.parse(data);
+     access_token = getData.access_token;
+    console.log(access_token);
+    resolve(access_token);
+  }); 
+
+    }
+ );
+}).then(res =&gt;{
+return access_token;
+
+});
+
+
+}
+
+
+exports.main = (event, context) =&gt; {
+ let datas = getAccessToken(); 
+ return datas;
+
+}</code></pre><h4 id="小程序端代码"><a href="#小程序端代码" class="headerlink" title="小程序端代码"></a>小程序端代码</h4><pre><code>getAccessToken: function() { //获取accesstoken
+ var x = new Promise((resolve, reject) =&gt; {
+  wx.cloud.callFunction({
+    name: &apos;getBaiDuAccessToken&apos;,
+    data: {},
+    success: resy =&gt; {
+      console.log(resy);
+      console.log(resy.result);
+      resolve(resy.result);
+    },
+    fail: resy =&gt; {
+      wx.showToast({
+        title: &apos;accesstoken报错&apos;,
+        icon: &apos;none&apos;,
+        duration: 2000
+      });
+    }
+  });
+});
+return x;
+ }</code></pre><h3 id="开始定时循环拍摄"><a href="#开始定时循环拍摄" class="headerlink" title="开始定时循环拍摄"></a>开始定时循环拍摄</h3><p>&emsp;&emsp;获取到access_token后,就可以在小程序循环拍摄上传了,但注意的是access_token最好放在服务器上让小程序将照片发送到后端让后端发送请求接口,但考虑到诸多性能问题,博主就将其放在小程序端上。</p>
+
+<h4 id="循环拍照"><a href="#循环拍照" class="headerlink" title="循环拍照"></a>循环拍照</h4><pre><code>every_camera_upload: function(acstoken) { //定时拍摄照片
+  let that = this;
+ timer = setTimeout(function() {
+  that.camera().then(resx =&gt; {
+    that.uploadBaiDuPicture(acstoken).then(rx =&gt;{
+      that.judge_face(rx);
+    });
+    that.every_camera_upload(that.data.getAccessToken); //方法中调用定时器实现循环
+  });
+}, 1500);</code></pre><h3 id="发送请求"><a href="#发送请求" class="headerlink" title="发送请求"></a>发送请求</h3><p>&emsp;&emsp;发送请求最好由服务器来做,服务器解析之后返回给小程序端,博主将其放在小程序端。</p>
+
+<pre><code>uploadBaiDuPicture: function(restoken) { //上传百度云照片并解析
+  var base64 = wx.getFileSystemManager().readFileSync(this.data.tempImagePath, &apos;base64&apos;);
+  let data = [{ //百度云的锅,在json格式外需要外加一个[]
+    image: base64,
+    image_type: &apos;BASE64&apos;
+ }];
+return new Promise((resolve, reject) =&gt; {
+  wx.request({
+    url: &apos;https://aip.baidubce.com/rest/2.0/face/v3/faceverify?access_token=&apos; + restoken,
+    data: data,
+    // dataType: &quot;json&quot;,
+    method: &apos;POST&apos;,
+    header: {
+      &apos;Content-Type&apos;: &apos;application/json&apos;
+    },
+    success(res) {
+      resolve(res);
+    }
+  })
+});
+}</code></pre> <p>&emsp;&emsp;由于拍摄的照片是在本地上,发送请求就必须将本地照片进行base64编码后放入data请求参数中,特别重要的一点,如果你碰上这种错误返回:</p>   
+
+<p> <img src="/2019/08/23/BaiDuface/second.png" alt="接口返回错误222200"></p>
+ <p>&emsp;&emsp;那八成是由于请求参数外没有加 [ ],如上代码显示,json请求格式外要 [] ,这个错误网上信息很少,解释为百度人脸识别v3版本的api表单是个list,接口开发文档也没有相关注明,所以请注意这个坑,引用:<a href="https://ai.baidu.com/forum/topic/show/870349" target="_blank" rel="noopener">活体检测error_code&quot;:222200&quot;</a></p>
+
+<h3 id="摇头点头顺序设置"><a href="#摇头点头顺序设置" class="headerlink" title="摇头点头顺序设置"></a>摇头点头顺序设置</h3><pre><code>judge_face: function(res) { //判断用户点头摇头动作
+    let that = this;
+if (res.data.error_code == 0) {
+  if (this.data.prove_face_front == false){
+    that.judge_prove_face_front(res);
+  }else if (that.data.judge_left_change_right_head_count &lt; 2) {
+    that.judge_left_change_right_head(res); //判断用户摇头
+  } else if(that.data.judge_down_to_up_head_count &lt; 2){
+    that.judge_down_to_up_head(res); //判断用户点头
+  }else {
+
+    wx.showLoading({
+      title: &apos;上传中&apos;,
+    });
+    innerAudioConext.src = &quot;/music/upload.mp3&quot;
+    innerAudioConext.play();
+    this.uploadUserPictureProve();
+    clearTimeout(timer);
+
+  }
+} else if (res.data.error_code == 222202) {
+  wx.showToast({
+    title: &apos;未识别到脸部&apos;,
+    icon: &apos;none&apos;,
+    duration: 500
+  });
+
+
+} else {
+  wx.showToast({
+    title: &apos;未知错误&apos;,
+    icon: &apos;none&apos;,
+    duration: 500
+  });
+}</code></pre><p>  }</p>
+<h3 id="解析返回json文件"><a href="#解析返回json文件" class="headerlink" title="解析返回json文件"></a>解析返回json文件</h3> <p>&emsp;&emsp;获取返回的json的参数pitch,yaw,为三维旋转角度,以此判断正脸</p>
+
+<pre><code>judge_prove_face_front:function(res){
+  let pitch = Math.abs(res.data.result.face_list[0].angle.pitch);
+  let yaw = Math.abs(res.data.result.face_list[0].angle.yaw);
+  if ((pitch &lt; 5 ) &amp;&amp; (yaw&lt;5)) {
+  let font_face=this.data.tempImagePath
+  this.setData({
+    prove_face_front: true,
+    save_font_face:font_face
+  })
+} else {
+  wx.showToast({
+    title: &apos;未检测到正脸&apos;,
+    icon: &apos;none&apos;,
+    duration: 1000
+  });
+}
+}</code></pre> <p>&emsp;&emsp;播放语音,获取返回的json的参数yaw,用上一次获取的yaw减去这一次的yaw参数的绝对值判断是否摇头。</p>
+
+<pre><code>judge_left_change_right_head: function(res) {
+   if (this.data.music_count == 0) {
+     innerAudioConext.src = &quot;/music/leftright.mp3&quot;
+     innerAudioConext.play();
+     this.data.music_count++;
+
+}
+let yaw = parseInt(res.data.result.face_list[0].angle.yaw);
+if ((yaw &lt; 0 || yaw &gt; 0) &amp;&amp; (Math.abs(this.data.last_yaw - yaw)&gt;40)) {
+  this.data.judge_left_change_right_head_count++;
+  this.setData({
+    last_yaw: yaw
+  })
+  console.log(&quot;摇头 &quot; + this.data.judge_left_change_right_head_count)
+} else {
+  console.log(&quot;yaoyaoyoa  &quot; + parseInt(this.data.last_yaw - yaw));
+  console.log(&quot;yaoyaoyoa  &quot; + typeof (res.data.result.face_list[0].angle.yaw));
+  wx.showToast({
+    title: &apos;未检测到摇头&apos;,
+    icon: &apos;none&apos;,
+    duration: 1000
+  });
+}
+}</code></pre> <p>&emsp;&emsp;播放语音,获取返回的json的参数pitch,用上一次获取的pitch减去这一次的pitch参数的绝对值判断是否点头。</p>
+
+
+
+<pre><code>judge_down_to_up_head: function(res) {
+if(this.data.music_count==1){
+  innerAudioConext.src = &quot;/music/headupdown.mp3&quot;
+  innerAudioConext.play();
+  this.data.music_count++;
+
+}
+let pitch = res.data.result.face_list[0].angle.pitch;
+if ((pitch &lt; 0 || pitch &gt; 0) &amp;&amp; (Math.abs(this.data.last_pitch - pitch) &gt; 5.5)) {
+  this.data.judge_down_to_up_head_count++;
+  this.setData({
+    last_pitch: pitch
+  })
+  //console.log(&quot;点头 &quot; + this.data.judge_down_to_up_head_count)
+} else {
+ // console.log(&quot;点头 &quot; + this.data.judge_down_to_up_head_count)
+ // console.log(&quot;点头ssssssssss &quot; + Math.abs(this.data.last_pitch - pitch))
+  wx.showToast({
+    title: &apos;未检测到点头&apos;,
+    icon: &apos;none&apos;,
+    duration: 1000
+  });
+}
+}</code></pre><h3 id="人脸对比"><a href="#人脸对比" class="headerlink" title="人脸对比"></a>人脸对比</h3>   <p>&emsp;&emsp;所有验证成功后,就可以直接上传人脸对比了,关于人脸对比同样使用静默人脸对比,由于源码解释众多,本篇文章就不再重复讲解了。</p>
+
+
+<h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1>   <p>&emsp;&emsp;只看开发者文档注定会踩许多坑,希望能将有坑的地方记录下来,让更多人注意。感谢其他文章论坛提问的帮助,链接如下：<br>&emsp;&emsp;<a href>微信小程序—setTimeOut定时器的坑</a><br>&emsp;&emsp;<a href="https://ai.baidu.com/forum/topic/show/870349" target="_blank" rel="noopener">活体检测error_code&quot;:222200&quot;</a></p>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 DAmarkday@163.com </span>
+    </div>
+</article>
+
+
+<p>
+    <a href="javascript:void(0)" class="dashang" onclick="dashangToggle()">赏</a>
+</p>
+
+
+<div class="article_copyright">
+    <p><span class="copy-title">文章标题:</span>小程序人脸动态识别摇摇头点点头采坑建议</p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">2k</span></p>
+    <p><span class="copy-title">本文作者:</span><a href="javascript:void(0)" title="DAmarkday">DAmarkday</a></p>
+    <p><span class="copy-title">发布时间:</span>2019-08-23, 07:55:08</p>
+    <p><span class="copy-title">最后更新:</span>2019-08-23, 11:39:40</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/08/23/BaiDuface/" title="小程序人脸动态识别摇摇头点点头采坑建议">http://DAmarkday.com/2019/08/23/BaiDuface/</a>
+    <p>
+        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+    </p>
+</div>
+
+
+
     <div id="comments"></div>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
 
@@ -468,6 +771,13 @@
         gitalk.render('comments')
     })
 </script>
+
+
+
+
+    
+
+
 
 
     </div>
