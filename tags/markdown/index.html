@@ -187,6 +187,14 @@
     
         
             
+            <li><div data-rel="其他">其他<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
             <li><div data-rel="安全漏洞">安全漏洞<small>(1)</small></div>
                 
             </li>
@@ -211,19 +219,11 @@
     
         
             
+        
+    
+        
+            
             <li><div data-rel="导论">导论<small>(1)</small></div>
-                
-            </li>
-            
-        
-    
-        
-            
-        
-    
-        
-            
-            <li><div data-rel="其他">其他<small>(1)</small></div>
                 
             </li>
             
@@ -286,6 +286,14 @@
     </li>
     
     <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">vscode</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">markdown</a>
+    </li>
+    
+    <li class="article-tag-list-item">
         <a href="javascript:" class="color5">简易爬虫</a>
     </li>
     
@@ -310,14 +318,6 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color2">vscode</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color4">markdown</a>
-    </li>
-    
-    <li class="article-tag-list-item">
         <a href="javascript:" class="color5">人脸识别</a>
     </li>
     
@@ -337,6 +337,14 @@
            data-author="" >
             <span class="post-title" title="微信小程序循环同步请求踩坑指南">微信小程序循环同步请求踩坑指南</span>
             <span class="post-date" title="2019-08-13 15:12:29">2019/08/13</span>
+        </a>
+        
+        <a  class="其他 "
+           href="/2019/07/30/vscode文档/"
+           data-tag="vscode,markdown"
+           data-author="" >
+            <span class="post-title" title="vscode的markdown操作">vscode的markdown操作</span>
+            <span class="post-date" title="2019-07-30 13:29:05">2019/07/30</span>
         </a>
         
         <a  class="安全漏洞 "
@@ -361,14 +369,6 @@
            data-author="" >
             <span class="post-title" title="导论">导论</span>
             <span class="post-date" title="2019-07-30 20:44:01">2019/07/30</span>
-        </a>
-        
-        <a  class="其他 "
-           href="/2019/07/30/vscode文档/"
-           data-tag="vscode,markdown"
-           data-author="" >
-            <span class="post-title" title="vscode的markdown操作">vscode的markdown操作</span>
-            <span class="post-date" title="2019-07-30 13:29:05">2019/07/30</span>
         </a>
         
         <a  class="编程平台 微信小程序 "
@@ -516,7 +516,7 @@
     /*作者、标签的自动补全*/
     $(function () {
         $('.search').AutoComplete({
-            'data': ['#微信小程序','#javascript','#简易爬虫','#漏洞','#抓包','#fiddler','#网络原理','#导论','#vscode','#markdown','#人脸识别',],
+            'data': ['#微信小程序','#javascript','#vscode','#markdown','#简易爬虫','#漏洞','#抓包','#fiddler','#网络原理','#导论','#人脸识别',],
             'itemHeight': 20,
             'width': 418
         }).AutoComplete('show');
